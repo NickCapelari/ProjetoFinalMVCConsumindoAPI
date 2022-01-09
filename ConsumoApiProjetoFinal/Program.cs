@@ -7,6 +7,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<LocalEventoService>();
 builder.Services.AddScoped<EventoService>();
 builder.Services.AddScoped<TipoIngressoService>();
+builder.Services.AddScoped<PortifolioService>();
+builder.Services.AddScoped<FotoPortifolioService>();
 
 
 var app = builder.Build();

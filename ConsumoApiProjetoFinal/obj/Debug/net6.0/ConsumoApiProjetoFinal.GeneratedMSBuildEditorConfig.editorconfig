@@ -35,6 +35,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/FotoPortifolio/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm90b1BvcnRpZm9saW9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/FotoPortifolio/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm90b1BvcnRpZm9saW9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/FotoPortifolio/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm90b1BvcnRpZm9saW9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -61,6 +73,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/LocalEvento/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWxFdmVudG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/Portifolio/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9ydGlmb2xpb1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/Portifolio/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9ydGlmb2xpb1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/Portifolio/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9ydGlmb2xpb1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/Portifolio/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9ydGlmb2xpb1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/Portifolio/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9ydGlmb2xpb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Curso.Net/ConsumoApiProjetoFinal/ConsumoApiProjetoFinal/Views/Shared/Error.cshtml]

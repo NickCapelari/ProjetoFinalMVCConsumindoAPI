@@ -27,12 +27,10 @@ namespace ConsumoApiProjetoFinal.Models
         [StringLength(15)]
         public string RG { get; set; }
 
-        [JsonIgnore]
-        [IgnoreDataMember]
+   
         public virtual ICollection<Contato>? Contatos { get; set; } = new List<Contato>();
 
-        [JsonIgnore]
-        [IgnoreDataMember]
+      
         public virtual ICollection<Ingresso>? Ingressos { get; set; } = new List<Ingresso>();
         public Pessoa() { }
 

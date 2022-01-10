@@ -18,9 +18,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.CaminhoFoto)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Portifolio.Name)
-            </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -33,9 +31,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CaminhoFoto)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Portifolio.Name)
-            </td>
+            
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id}) |
                 @Html.ActionLink("Details", "Details", new {  id=item.Id}) |

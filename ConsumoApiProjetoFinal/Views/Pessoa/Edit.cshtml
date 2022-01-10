@@ -1,0 +1,63 @@
+﻿@model ConsumoApiProjetoFinal.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Pessoa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          <input type="hidden" asp-for="Id" />  
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input asp-for="DataNascimento" class="form-control" />
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RG" class="control-label"></label>
+                <input asp-for="RG" class="form-control" />
+                <span asp-validation-for="RG" class="text-danger"></span>
+            </div>
+              @foreach(var contato in @Model.Contatos){
+            <div class="form-group">
+                <label asp-for="@contato.Email" class="control-label"></label>
+                <input asp-for="@contato.Email" class="form-control" />
+                <span asp-validation-for="@contato.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                 <label asp-for="@contato.Telefone" class="control-label"></label>
+                <input asp-for="@contato.Telefone" class="form-control" />
+                <span asp-validation-for="@contato.Telefone" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="@contato.Id" aps-items ="@(new SelectList(Model.Contatos,"Id")))" />
+            <input type="hidden" asp-for="@contato.PessoaId" />
+            }
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -9,7 +9,9 @@ builder.Services.AddScoped<EventoService>();
 builder.Services.AddScoped<TipoIngressoService>();
 builder.Services.AddScoped<PortifolioService>();
 builder.Services.AddScoped<FotoPortifolioService>();
-
+builder.Services.AddScoped<PessoaService>();
+builder.Services.AddScoped<ContatoService>();
+builder.Services.AddScoped<IngressoService>();
 
 var app = builder.Build();
 

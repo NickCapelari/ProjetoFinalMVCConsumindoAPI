@@ -10,7 +10,7 @@ namespace ConsumoApiProjetoFinal.Models
         [StringLength(100)]
         public string Tipo { get; set; }
         [Required]
-        [Range(0.1, 100)]
+        [Range(0.0, 100)]
         public double PercentualDesconto { get; set; }
         public virtual ICollection<Ingresso> Ingressos { get; set; }
 

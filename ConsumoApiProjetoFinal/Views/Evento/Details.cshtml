@@ -52,30 +52,18 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LocalEvento.Name)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LocalEvento.Cidade)
+      
+
+        @foreach(var item in Model.Ingressos)
+        {
+        <dt class="col-sm-2"> Ingressos:
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LocalEvento.Cidade)
+           @item.Pessoa.Nome |
+           <strong>Tipo Ingresso: </strong>@item.TipoIngresso.Tipo
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LocalEvento.Logradouro)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LocalEvento.Logradouro)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LocalEvento.Numero)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LocalEvento.Numero)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LocalEvento.UF)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LocalEvento.UF)
-        </dd>
+           
+        }
     </dl>
 </div>
 <div>

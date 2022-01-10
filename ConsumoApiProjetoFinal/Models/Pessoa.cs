@@ -26,8 +26,6 @@ namespace ConsumoApiProjetoFinal.Models
 
         [StringLength(15)]
         public string RG { get; set; }
-
-   
         public virtual ICollection<Contato>? Contatos { get; set; } = new List<Contato>();
 
       

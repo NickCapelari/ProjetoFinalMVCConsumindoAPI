@@ -20,7 +20,6 @@ namespace ConsumoApiProjetoFinal.Models
         [EmailAddress(ErrorMessage = "Iserir um e-mail valido")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-
         public int PessoaId { get; set; }
         public virtual Pessoa? Pessoa { get; set; }
 

@@ -18,14 +18,12 @@ namespace ConsumoApiProjetoFinal.Models
 
         [Display(Name = "Data de Inicio: ")]
         [Required]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.DateTime)]
         public DateTime DataInicio { get; set; }
 
         [Display(Name = "Data Encerramento: ")]
         [Required]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.DateTime)]
         public DateTime DataFim { get; set; }
 
         [Display(Name = "Valor do Ingresso: ")]

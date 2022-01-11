@@ -1,10 +1,12 @@
 ﻿using ConsumoApiProjetoFinal.Models;
 using ConsumoApiProjetoFinal.Models.ViewModels;
 using ConsumoApiProjetoFinal.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConsumoApiProjetoFinal.Controllers
 {
+    
     public class FotoPortifolioController : Controller
     {
         private readonly FotoPortifolioService _fotoPortifolioService;
@@ -14,18 +16,21 @@ namespace ConsumoApiProjetoFinal.Controllers
             _fotoPortifolioService = fotoPortifolioService;
         }
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var list = await _fotoPortifolioService.GetAllAsync();
             return View(list);
         }
 
+        [Authorize]
         public async Task<IActionResult> Details(int id)
         {
             var obj = await _fotoPortifolioService.GetByIdAsync(id);
             return View(obj);
         }
 
+        [Authorize]
         public async Task<IActionResult> Create()
         {
             PortifolioService _portifolioService = new PortifolioService();
@@ -33,7 +38,7 @@ namespace ConsumoApiProjetoFinal.Controllers
             var viewModel = new FotoPortifolioViewModel { Portifolios = portifolios };
             return View(viewModel);
         }
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(FotoPortifolio fotoPortifolio)
@@ -42,6 +47,7 @@ namespace ConsumoApiProjetoFinal.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             PortifolioService _portifolioService = new PortifolioService();
@@ -51,6 +57,7 @@ namespace ConsumoApiProjetoFinal.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(FotoPortifolio fotoPortifolio)
@@ -59,12 +66,14 @@ namespace ConsumoApiProjetoFinal.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             var obj = await _fotoPortifolioService.GetByIdAsync(id.Value);
             return View(obj);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)

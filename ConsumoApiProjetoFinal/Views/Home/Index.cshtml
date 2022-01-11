@@ -4,13 +4,13 @@
 }
 @*~/css/fotos/1.png*@
  <h2>Portifolio</h2>
-<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index2" class=btn-link >Eventos</a>
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Eventos" class=btn-link >Eventos</a>
 @foreach (var item in Model)
 {
     <div class="container">
         <h4>@item.Name</h4>
         <div class="col-md-6">
-        <a asp-controller="Portifolio" asp-action="Details" asp-route-id="@item.Id"><img src=@item.CaminhoFotoPrincipal height=200 width=200/></a>
+       <img src=@item.CaminhoFotoPrincipal height=200 width=200/>
         <span>@item.Descricao</span>          
     </div>
     </div>

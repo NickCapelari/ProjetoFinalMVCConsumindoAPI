@@ -1,10 +1,12 @@
 ﻿using ConsumoApiProjetoFinal.Models;
 using ConsumoApiProjetoFinal.Models.ViewModels;
 using ConsumoApiProjetoFinal.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConsumoApiProjetoFinal.Controllers
 {
+
     public class EventoController : Controller
     {
         private readonly EventoService _eventoService;
@@ -14,18 +16,21 @@ namespace ConsumoApiProjetoFinal.Controllers
             _eventoService = eventoService;
         }
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var list = await _eventoService.GetAllAsync();
             return View(list);
         }
 
+        [Authorize]
         public async Task<IActionResult> Details(int id)
         {
             var obj = await _eventoService.GetByIdAsync(id);
             return View(obj);
         }
 
+        [Authorize]
         public async Task<IActionResult> Create()
         {
             LocalEventoService _localEventoService = new LocalEventoService();
@@ -34,6 +39,7 @@ namespace ConsumoApiProjetoFinal.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Evento evento)
@@ -42,6 +48,7 @@ namespace ConsumoApiProjetoFinal.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             LocalEventoService _localEventoService = new LocalEventoService();
@@ -51,6 +58,7 @@ namespace ConsumoApiProjetoFinal.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(Evento evento)
@@ -59,12 +67,14 @@ namespace ConsumoApiProjetoFinal.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             var obj = await _eventoService.GetByIdAsync(id.Value);
             return View(obj);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)

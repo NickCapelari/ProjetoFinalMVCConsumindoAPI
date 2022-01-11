@@ -6,7 +6,7 @@ namespace ConsumoApiProjetoFinal.Models
     {
         [Key]
         public int Id { get; set; }
-        public double ValorFinal { get; set; }
+        public double? ValorFinal { get; set; }
         public int TipoIngressoId { get; set; }
         public int EventoId { get; set; }
         public int PessoaId { get; set; }

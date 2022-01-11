@@ -63,5 +63,22 @@ namespace ConsumoApiProjetoFinal.Services
         {
             HttpResponseMessage response = await client.DeleteAsync(BaseUrl + "api/evento/" + id);
         }
+
+        public async Task<List<Evento>> GetByDateAsync()
+        {
+            List<Evento>? list = new List<Evento>();
+            client.BaseAddress = new Uri(BaseUrl);
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+            new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.GetAsync("api/evento/date");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var dados = response.Content.ReadAsStringAsync().Result;
+                list = JsonConvert.DeserializeObject<List<Evento>>(dados);
+            }
+            return list;
+        }
     }
 }

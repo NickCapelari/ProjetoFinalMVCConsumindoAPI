@@ -1,4 +1,5 @@
 using ConsumoApiProjetoFinal.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,17 @@ builder.Services.AddScoped<PessoaService>();
 builder.Services.AddScoped<ContatoService>();
 builder.Services.AddScoped<IngressoService>();
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options => options.LoginPath = "/Home/LoginPage");
+   
+    
+
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = SameSiteMode.None;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,10 +36,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseCookiePolicy();
 
 app.Run();

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ConsumoApiProjetoFinal.Models.Evento>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Eventos</h1> 
+
+<div class="container">
+@foreach(var item in Model){
+   <div class="col-md-10">
+   <h2>@item.Nome</h2> 
+   <p>@item.Descricao</p>
+   <p>Valor: @item.Valor</p>
+   <p>Local: @item.LocalEvento.Name</p>
+   <p>Endereço Rua: @item.LocalEvento.Logradouro, N: @item.LocalEvento.Numero, Bairro: @item.LocalEvento.Bairro, Cidade: @item.LocalEvento.Cidade</p>
+    
+    
+   <footer>
+       <span>@item.DataInicio</span>
+       <span>@item.DataFim</span>
+   </footer>
+   <br/>
+   <hr>
+</div>
+}
+</div>
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index2">Portifolio</a>

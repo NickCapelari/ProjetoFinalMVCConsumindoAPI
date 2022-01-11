@@ -1,8 +1,28 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<ConsumoApiProjetoFinal.Models.Portifolio>
+@{
+    
+}
+@*~/css/fotos/1.png*@
+ <h2>Portifolio</h2>
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index2" class=btn-link >Eventos</a>
+@foreach (var item in Model)
+{
+    <div class="container">
+        <h4>@item.Name</h4>
+        <div class="col-md-6">
+        <a asp-controller="Portifolio" asp-action="Details" asp-route-id="@item.Id"><img src=@item.CaminhoFotoPrincipal height=200 width=200/></a>
+        <span>@item.Descricao</span>          
+    </div>
+    </div>
+    <br />
+    <br />
+     <br />
+    <h6>Demais Fotos</h6>
+    @foreach(var fotos in @item.FotosPortifolio)
+                {
+                    <a href=@fotos.CaminhoFoto><img src=@fotos.CaminhoFoto height=200 width=200 border=10px /></a>
+                }
+                <br /> <br />
+                <hr />
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>

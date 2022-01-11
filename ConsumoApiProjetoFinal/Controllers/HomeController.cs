@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using ConsumoApiProjetoFinal.Models.ViewModels;
+using ConsumoApiProjetoFinal.Services;
 
 namespace ConsumoApiProjetoFinal.Controllers
 {
@@ -14,9 +15,17 @@ namespace ConsumoApiProjetoFinal.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index2()
         {
-            return View();
+            EventoService eventoService = new EventoService();
+            var list = await eventoService.GetAllAsync();
+            return View(list);
+        }
+        public async Task<IActionResult> Index()
+        {
+            PortifolioService portifolioService = new PortifolioService();
+            var list = await portifolioService.GetAllAsync();
+            return View(list);
         }
 
         public IActionResult Privacy()

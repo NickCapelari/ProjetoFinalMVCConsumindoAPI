@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Newtonsoft.Json;
+using System.Security.Cryptography;
 
 namespace ConsumoApiProjetoFinal.Controllers
 {
@@ -64,6 +65,7 @@ namespace ConsumoApiProjetoFinal.Controllers
         [HttpPost]
         public async Task<IActionResult> LoginPage(Usuario usuario)
         {
+            var hash = new Hash(SHA512.Create());
             UsuarioService usuarioService = new UsuarioService();
             string token = usuarioService.pegarToken(usuario);
             Usuario obj = new Usuario();
@@ -72,7 +74,7 @@ namespace ConsumoApiProjetoFinal.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (usuario.User == obj.User && usuario.Password == obj.Password)
+                    if (usuario.User == obj.User && hash.VerificarSenha(usuario.Password, obj.Password))
                     {
                         var claims = new List<Claim>
                         {

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Ingressos</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -18,42 +18,43 @@
             <th>
                 @Html.DisplayNameFor(model => model.ValorFinal)
             </th>
-             <th>
+            <th>
                 @Html.DisplayNameFor(model => model.Pessoa.Nome)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TipoIngresso.Tipo)
             </th>
-                <th>
+            <th>
                 @Html.DisplayNameFor(model => model.Evento.Nome)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorFinal)
-            </td>
-               <td>
-                @Html.DisplayFor(modelItem => item.Pessoa.Nome)
-            </td>
-               <td>
-                @Html.DisplayFor(modelItem => item.TipoIngresso.Tipo)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
                 <td>
-                @Html.DisplayFor(modelItem => item.Evento.Nome)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            </td>
-        </tr>
-}
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorFinal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pessoa.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoIngresso.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Evento.Nome)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

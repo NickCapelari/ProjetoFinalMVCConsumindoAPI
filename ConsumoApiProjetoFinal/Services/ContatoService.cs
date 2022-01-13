@@ -1,5 +1,8 @@
 ﻿using ConsumoApiProjetoFinal.Models;
 using Newtonsoft.Json;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
 
 namespace ConsumoApiProjetoFinal.Services
 {
@@ -7,8 +10,8 @@ namespace ConsumoApiProjetoFinal.Services
     {
         string BaseUrl = "http://localhost:5190/";
         HttpClient client = new HttpClient();
-
-        public async Task<List<Contato>> GetAllAsync()
+        
+        public async Task<List<Contato>> GetAllAsync(string token)
         {
             List<Contato>? list = new List<Contato>();
             client.BaseAddress = new Uri(BaseUrl);
@@ -25,7 +28,7 @@ namespace ConsumoApiProjetoFinal.Services
             return list;
         }
 
-        public async Task<Contato> GetByIdAsync(int id)
+        public async Task<Contato> GetByIdAsync(int id, string token)
         {
             Contato? contato = new Contato();
 
@@ -33,6 +36,7 @@ namespace ConsumoApiProjetoFinal.Services
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept.Add(
             new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             HttpResponseMessage response = await client.GetAsync("api/contato/" + id);
 
             if (response.IsSuccessStatusCode)
@@ -44,22 +48,24 @@ namespace ConsumoApiProjetoFinal.Services
             return contato;
         }
 
-        public async Task CreateAsync(Contato contato)
+        public async Task CreateAsync(Contato contato, string token)
         {
-
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 BaseUrl + "api/contato", contato);
 
         }
 
-        public async Task UpdateAsync(Contato contato)
+        public async Task UpdateAsync(Contato contato, string token)
         {
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             HttpResponseMessage response = await client.PutAsJsonAsync(BaseUrl + "api/contato/" + contato.Id, contato);
 
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id, string token)
         {
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             HttpResponseMessage response = await client.DeleteAsync(BaseUrl + "api/contato/" + id);
         }
     }

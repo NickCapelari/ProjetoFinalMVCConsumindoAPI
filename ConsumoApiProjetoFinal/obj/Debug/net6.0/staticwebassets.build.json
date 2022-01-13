@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D6jPJC/EeE4uckIRDcP84l8MZdaIgDyixwnDZkQJvQA=",
+  "Hash": "d9UUGGLJM4sd+yRYOzTGW/KDjSzp5rRB7YEh+b+2W10=",
   "Source": "ConsumoApiProjetoFinal",
   "BasePath": "_content/ConsumoApiProjetoFinal",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ConsumoApiProjetoFinal.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\css\\facebook.png",
+      "SourceId": "ConsumoApiProjetoFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\",
+      "BasePath": "_content/ConsumoApiProjetoFinal",
+      "RelativePath": "css/facebook.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\facebook.png"
     },
     {
       "Identity": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\css\\fotos\\1.png",
@@ -221,6 +238,23 @@
       "OriginalItemSpec": "wwwroot\\css\\fotos\\principal.jpg"
     },
     {
+      "Identity": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\css\\instagram.png",
+      "SourceId": "ConsumoApiProjetoFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\",
+      "BasePath": "_content/ConsumoApiProjetoFinal",
+      "RelativePath": "css/instagram.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\instagram.png"
+    },
+    {
       "Identity": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\css\\site.css",
       "SourceId": "ConsumoApiProjetoFinal",
       "SourceType": "Discovered",
@@ -236,6 +270,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\css\\twitter.png",
+      "SourceId": "ConsumoApiProjetoFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\",
+      "BasePath": "_content/ConsumoApiProjetoFinal",
+      "RelativePath": "css/twitter.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\twitter.png"
+    },
+    {
+      "Identity": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\css\\whatsapp.png",
+      "SourceId": "ConsumoApiProjetoFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\",
+      "BasePath": "_content/ConsumoApiProjetoFinal",
+      "RelativePath": "css/whatsapp.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\whatsapp.png"
     },
     {
       "Identity": "D:\\Curso.Net\\ConsumoApiProjetoFinal\\ConsumoApiProjetoFinal\\wwwroot\\favicon.ico",

@@ -7,22 +7,23 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
 
 namespace ConsumoApiProjetoFinal.Controllers
 {
 
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
-
-     
         public async Task<IActionResult> Eventos()
         {
+
             EventoService eventoService = new EventoService();
             var list = await eventoService.GetByDateAsync();
             return View(list);
@@ -30,6 +31,7 @@ namespace ConsumoApiProjetoFinal.Controllers
 
         public async Task<IActionResult> Index()
         {
+            
             PortifolioService portifolioService = new PortifolioService();
             var list = await portifolioService.GetAllAsync();
             return View(list);
@@ -49,6 +51,7 @@ namespace ConsumoApiProjetoFinal.Controllers
         [AllowAnonymous]
         public IActionResult LoginPage()
         {
+           
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index");
@@ -62,6 +65,7 @@ namespace ConsumoApiProjetoFinal.Controllers
         public async Task<IActionResult> LoginPage(Usuario usuario)
         {
             UsuarioService usuarioService = new UsuarioService();
+            string token = usuarioService.pegarToken(usuario);
             Usuario obj = new Usuario();
             obj = await usuarioService.GetByNameAsync(usuario.User);
             try
@@ -73,7 +77,7 @@ namespace ConsumoApiProjetoFinal.Controllers
                         var claims = new List<Claim>
                         {
                             new Claim(ClaimTypes.Name, usuario.User),
-                            new Claim(ClaimTypes.Role, "admin"),
+                            new Claim(ClaimTypes.Sid, token.ToString())
                         };
 
                         var identidade = new ClaimsIdentity(claims, "Login");

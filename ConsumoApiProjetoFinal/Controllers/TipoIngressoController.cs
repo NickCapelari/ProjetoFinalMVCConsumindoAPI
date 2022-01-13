@@ -2,6 +2,8 @@
 using ConsumoApiProjetoFinal.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Security.Claims;
 
 namespace ConsumoApiProjetoFinal.Controllers
 {
@@ -18,14 +20,18 @@ namespace ConsumoApiProjetoFinal.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var list = await _tipoIngressoService.GetAllAsync();
+            var token = HttpContext.User.FindFirst(ClaimTypes.Sid).Value;
+            var tokenKey = JsonConvert.DeserializeObject(token);
+            var list = await _tipoIngressoService.GetAllAsync(tokenKey.ToString());
             return View(list);
         }
 
         [Authorize]
         public async Task<IActionResult> Details(int id)
         {
-            var obj = await _tipoIngressoService.GetByIdAsync(id);
+            var token = HttpContext.User.FindFirst(ClaimTypes.Sid).Value;
+            var tokenKey = JsonConvert.DeserializeObject(token);
+            var obj = await _tipoIngressoService.GetByIdAsync(id, tokenKey.ToString());
             return View(obj);
         }
 
@@ -40,14 +46,18 @@ namespace ConsumoApiProjetoFinal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TipoIngresso tipoIngresso)
         {
-            await _tipoIngressoService.CreateAsync(tipoIngresso);
+            var token = HttpContext.User.FindFirst(ClaimTypes.Sid).Value;
+            var tokenKey = JsonConvert.DeserializeObject(token);
+            await _tipoIngressoService.CreateAsync(tipoIngresso, tokenKey.ToString());
             return RedirectToAction(nameof(Index));
         }
 
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
-            var obj = await _tipoIngressoService.GetByIdAsync(id.Value);
+            var token = HttpContext.User.FindFirst(ClaimTypes.Sid).Value;
+            var tokenKey = JsonConvert.DeserializeObject(token);
+            var obj = await _tipoIngressoService.GetByIdAsync(id.Value, tokenKey.ToString());
             return View(obj);
         }
 
@@ -56,14 +66,18 @@ namespace ConsumoApiProjetoFinal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(TipoIngresso tipoIngresso)
         {
-            await _tipoIngressoService.UpdateAsync(tipoIngresso);
+            var token = HttpContext.User.FindFirst(ClaimTypes.Sid).Value;
+            var tokenKey = JsonConvert.DeserializeObject(token);
+            await _tipoIngressoService.UpdateAsync(tipoIngresso, tokenKey.ToString());
             return RedirectToAction(nameof(Index));
         }
 
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
-            var obj = await _tipoIngressoService.GetByIdAsync(id.Value);
+            var token = HttpContext.User.FindFirst(ClaimTypes.Sid).Value;
+            var tokenKey = JsonConvert.DeserializeObject(token);
+            var obj = await _tipoIngressoService.GetByIdAsync(id.Value, tokenKey.ToString());
             return View(obj);
         }
 
@@ -72,7 +86,9 @@ namespace ConsumoApiProjetoFinal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            await _tipoIngressoService.DeleteAsync(id);
+            var token = HttpContext.User.FindFirst(ClaimTypes.Sid).Value;
+            var tokenKey = JsonConvert.DeserializeObject(token);
+            await _tipoIngressoService.DeleteAsync(id, tokenKey.ToString());
             return RedirectToAction(nameof(Index));
         }
     }

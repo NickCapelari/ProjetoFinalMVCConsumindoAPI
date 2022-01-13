@@ -1,5 +1,7 @@
 ﻿using ConsumoApiProjetoFinal.Models;
 using Newtonsoft.Json;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace ConsumoApiProjetoFinal.Services
 {
@@ -27,5 +29,29 @@ namespace ConsumoApiProjetoFinal.Services
             return user;
         }
 
+        public string pegarToken(Usuario user)
+        {
+            string BaseUrl = "http://localhost:5190/";
+            string token = "";
+            HttpClient clientToken = new HttpClient();
+            clientToken.DefaultRequestHeaders.Accept.Clear();
+            clientToken.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage respToken = clientToken.PostAsJsonAsync(BaseUrl + "api/autenticar", user).Result;
+
+            if (respToken.StatusCode == HttpStatusCode.OK)
+            {
+                return token = respToken.Content.ReadAsStringAsync().Result;
+
+            }
+            else
+            {
+                return "";
+            }
+
+        }
+
     }
+
+    
 }

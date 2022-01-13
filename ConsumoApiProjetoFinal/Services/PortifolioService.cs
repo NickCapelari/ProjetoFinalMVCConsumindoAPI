@@ -1,5 +1,6 @@
 ﻿using ConsumoApiProjetoFinal.Models;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace ConsumoApiProjetoFinal.Services
 {
@@ -25,7 +26,7 @@ namespace ConsumoApiProjetoFinal.Services
             return list;
         }
 
-        public async Task<Portifolio> GetByIdAsync(int id)
+        public async Task<Portifolio> GetByIdAsync(int id, string token)
         {
             Portifolio? portifolio = new Portifolio();
 
@@ -33,6 +34,7 @@ namespace ConsumoApiProjetoFinal.Services
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept.Add(
             new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             HttpResponseMessage response = await client.GetAsync("api/portifolio/" + id);
 
             if (response.IsSuccessStatusCode)
@@ -44,23 +46,26 @@ namespace ConsumoApiProjetoFinal.Services
             return portifolio;
         }
 
-        public async Task CreateAsync(Portifolio portifolio)
+        public async Task CreateAsync(Portifolio portifolio, string token)
         {
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 BaseUrl + "api/portifolio", portifolio);
 
         }
 
-        public async Task UpdateAsync(Portifolio portifolio)
+        public async Task UpdateAsync(Portifolio portifolio, string token)
         {
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             HttpResponseMessage response = await client.PutAsJsonAsync(BaseUrl + "api/portifolio/" + portifolio.Id, portifolio);
 
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id, string token)
         {
-            HttpResponseMessage response = await client.DeleteAsync(BaseUrl + "api/portifolio/" + id);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+             HttpResponseMessage response = await client.DeleteAsync(BaseUrl + "api/portifolio/" + id);
         }
     }
 }
